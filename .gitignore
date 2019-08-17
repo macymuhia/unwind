@@ -1,0 +1,8 @@
+start.sh
+.vscode/
+vscode/
+migrations/
+venv/
+env/
+virtual/
+.idea/
