@@ -3,8 +3,8 @@ from . import main
 
 
 @main.route("/")
-def index():
-    app_name = "UNWIND"
+def unwind():
+    app_name = "UNWINDING"
 
-    return render_template("index.html", app_name=app_name)
+    return render_template("unwind.html", app_name=app_name)
 
