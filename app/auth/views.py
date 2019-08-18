@@ -14,7 +14,7 @@ def login():
         if user and user.verify_password(form.password.data):
             flash("Logged in")
             login_user(user)
-            print(user)
+            # print(user)
             return redirect(url_for("main.unwind"))
         else:
             flash("Invalid username or Password")
