@@ -2,7 +2,12 @@
 
 <!-- content -->
 <div class="container">
-    {% block content %} {{app_name}}
+    {% block content %}
+    <div class="jumbotron text-center">
+        <h1>
+            {{app_name}}
+        </h1>
+    </div>
     <div class="col-md-4"></div>
     <div class="col-md-4">
         {{ wtf.quick_form(form) }}
