@@ -21,10 +21,9 @@
         <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
                 <li style="color:white;padding:18px;font-family: 'Monoton', cursive; color:white;"><H3>Welcome, <br> {{current_user.username}}</H3></li>
-                <li class="pro"><a href="{{url_for('main.profile',uname=current_user.username)}}"><H3>See Profile</H3></a></li>
+                <li class="pro"><a href="{{url_for('main.index',uname=current_user.username)}}"><H3>See Profile</H3></a></li>
                 <li><a href="{{url_for('auth.logout')}}"><H3>Sign out</H3></a></li>
                 {% else %}
-                <li><a href="{{url_for('main.subscribe')}}"><h3>Subscribe</h3></a></li>
 
                 <li><a href="{{url_for('auth.register')}}"><H3>Sign Up</H3></a></li>
                 <li><a href="{{url_for('auth.login')}}"><H3>Sign in</H3></a></li>
