@@ -11,6 +11,10 @@ from wtforms.validators import Required, Email, EqualTo
 from ..models import User
 
 
+class AddPomodoroForm(FlaskForm):
+    submit = SubmitField("Add Pomodoro")
+
+
 class SignInForm(FlaskForm):
     submit = SubmitField("Sign in")
 

@@ -15,7 +15,7 @@ def login():
             flash("Logged in")
             login_user(user)
             # print(user)
-            return redirect(url_for("main.unwind"))
+            return redirect(url_for("main.settings"))
         else:
             flash("Invalid username or Password")
             return render_template("auth/login.html", form=form)
@@ -43,4 +43,4 @@ def register():
 @auth.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for("auth.login"))
+    return redirect(url_for("main.index"))

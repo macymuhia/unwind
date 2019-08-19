@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user
 from . import main
-from .forms import SignInForm, SettingsForm
+from .forms import SignInForm, SettingsForm, AddPomodoroForm
 from ..models import User, Settings, load_user
 from .. import db
 
@@ -9,6 +9,9 @@ from .. import db
 @main.route("/", methods=["GET", "POST"])
 def index():
     app_name = "Welcome HOME"
+    form = AddPomodoroForm()
+    if form.validate_on_submit():
+        return redirect(url_for("main.settings"))
     duration = 0
     short_break = 0
     user_settings = Settings.query.filter_by(user_id=current_user.get_id()).first()
@@ -16,7 +19,11 @@ def index():
         duration = user_settings.duration
         short_break = user_settings.short_break
     return render_template(
-        "index.html", app_name=app_name, duration=duration, short_break=short_break
+        "index.html",
+        app_name=app_name,
+        duration=duration,
+        short_break=short_break,
+        form=form,
     )
 
 
