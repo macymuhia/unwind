@@ -37,7 +37,7 @@
             font-size: 16px;
         }
         body{
-            /* background-image: url("https://images.all-free-download.com/images/graphiclarge/promodoro_140469.jpg"); */
+            background-image: url("https://hookagency.com/wp-content/uploads/2015/11/green-to-blue-ui-gradient-background.jpg");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -47,14 +47,16 @@
             {{app_name}}
         </h1>
     </div>
-
-    <div class="col-md-6">
+    <div class="row">
+        <div id="countTime">
+            <input id="duration" class="col-6" name="duration" type="hidden" value="{{ duration }}" />
+            <input id="short_break" class="col-6" name="short_break" type="hidden" value="{{ short_break }}" />
+        </div>
+    </div>
+    <div class="col-md-12">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div id="countTime">
-                    <input id="duration" name="duration" type="hidden" value="{{ duration }}" />
-                    <input id="short_break" name="short_break" type="hidden" value="{{ short_break }}" />
-                </div>
+
                 <div id="clockdiv">
                     <div>
                         <span class="minutes"></span>
@@ -69,9 +71,15 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
+                {% if current_user.is_authenticated %}
                 <button id="startButton" class="btn btn-primary">Start</button>
 
                 <button id="stopButton" class="btn btn-danger">Cancel</button>
+                {% else %}
+                <li><a href="{{url_for('auth.register')}}"><H3>Sign Up</H3></a></li>
+                <li><a href="{{url_for('auth.login')}}"><H3>Sign in</H3></a></li>
+
+                {%endif%}
             </div>
         </div>
         <div>
