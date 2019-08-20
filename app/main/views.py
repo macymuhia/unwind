@@ -8,7 +8,7 @@ from .. import db
 
 @main.route("/", methods=["GET", "POST"])
 def index():
-    app_name = "Welcome HOME"
+    app_name = "UNWIND"
     form = AddPomodoroForm()
     if form.validate_on_submit():
         return redirect(url_for("main.settings"))
